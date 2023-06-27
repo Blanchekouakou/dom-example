@@ -1,14 +1,30 @@
-.like-btn:hover{
-    color: rgb(218, 40, 40);
+body{
+    background-color: #eee;
 }
 
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-    }
+.like-btn:hover{
+    color: rgb(233, 101, 101);
+}
+
+.icon-size{
+    font-size: 40px;
+    margin: 13px;
+
+}
+
+.icon-size:hover{
+    color: rgb(233, 101, 101);
+}
+
+.main-color{
+    color: rgb(228, 135, 92)
+}
+
+.bg-summary{
+    background-color: #ebe5e5;
+}
+
+input{
+    text-align: center;
+    font-weight: bolder;
+}

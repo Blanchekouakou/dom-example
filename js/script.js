@@ -12,6 +12,7 @@ var addLike = function(){
 var removeLike = () => {
     btnLike1.removeAttribute('class');
     btnLike1.setAttribute('class', 'fa-regular fa-heart');
+    btnLike1.style.color = "none";
 
     btnLike1.removeEventListener('click', removeLike);
     btnLike1.addEventListener('click', addLike);
