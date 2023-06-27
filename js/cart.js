@@ -44,6 +44,42 @@ var recalculateTotalPrice = (item) => {
     totalPrice.innerHTML = `<h5 class="mb-0"><strong class="totalPrice">$${item.total()}</strong></h5>`
 }
 
+var likeItem = (el, item) => {
+    var likeBtn = el.childNodes[0];
+    var addLike = function(){
+        likeBtn.removeAttribute('class');
+        likeBtn.setAttribute('class', 'fa-solid text-danger fa-heart icon-size fa-bounce');
+        likeBtn.style.color = "rgb(218, 40, 40)";
+        item.isFavorite = true;
+    
+        likeBtn.removeEventListener('click', addLike);
+        likeBtn.addEventListener('click', removeLike);
+    }
+    
+    var removeLike = () => {
+        likeBtn.removeAttribute('class');
+        likeBtn.setAttribute('class', 'fa-regular fa-heart icon-size fa-bounce');
+        likeBtn.style.color = "black";
+        item.isFavorite = false;
+    
+        likeBtn.removeEventListener('click', removeLike);
+        likeBtn.addEventListener('click', addLike);
+    }
+    
+    item.isFavorite ? likeBtn.addEventListener('click', removeLike)  : likeBtn.addEventListener('click', addLike);
+}
+
+function removeItem(el, item){
+    var removeBtn = el.childNodes[1];
+    removeBtn.addEventListener('click', () => {
+        var cardEl = document.getElementById(item.cartRef);
+        var confirRemove = confirm("Are you sure you want to remove this article from the cart ?");
+        confirRemove ? cardEl.remove() : null;
+        confirRemove ? cart.shift(item) : null;
+    });
+}
+
+
 //Fonction pour creer un element HTMl du panier
 var createItemHTML = (item) => {
     //Premiere Div
@@ -144,6 +180,9 @@ var createItemHTML = (item) => {
     //condition ternaire equivalent au if else ci-dessus
     productAction.innerHTML = item.isFavorite ? `<i class="fa-solid text-danger fa-heart icon-size fa-bounce"></i>` : `<i class="fa-regular fa-heart icon-size fa-bounce"></i>`;
     productAction.innerHTML += `<i class="fas fa-trash fa-beat-fade fa-lg icon-size text-danger"></i>`;
+
+    likeItem(productAction, item);
+    removeItem(productAction, item);
 
     row.appendChild(productImageDiv);
     row.appendChild(productTitleDiv);
