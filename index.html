@@ -53,24 +53,25 @@
     </header>
     <main>
       <section class="mt-4">
+        <p id="log"></p>
         <div class="container">
             <div class="row d-flex align-items-center">
-                <div class="col-4">
+                <div class="col-4" id="box1">
                     <div class="card shadow-lg">
                         <div class="card-header bg-white border-0">Box #1</div>
                         <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <p class="card-text">
+                          <h5 class="card-title" id="text-h5"></h5>
+                          <p class="card-text" id="paraph1">
                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, nobis nam nemo beatae minima repellendus aliquam officiis dignissimos ipsum.
                           </p>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-white border-0">
                             <span><i class="fa-regular fa-heart like-btn" id="like-btn-1"></i></span>
-                            <button type="button" title="Remove this Box" class="text-end btn btn-danger">Remove Box</button>
+                            <button type="button" id="btn1" title="Remove this Box" class="text-end btn btn-danger">Remove Box</button>
                         </div>
                       </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4" id="box2">
                     <div class="card shadow-lg">
                         <div class="card-header bg-white border-0">Box #2</div>
                         <div class="card-body">
@@ -81,7 +82,7 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between align-content-center bg-white border-0">
                             <span><i class="fa-regular fa-heart like-btn mt-2" id="like-btn-2"></i></span>
-                            <button type="button" title="Remove this Box" class="text-end btn btn-danger">Remove Box</button>
+                            <button type="button" id="btn2" title="Remove this Box" class="text-end btn btn-danger">Remove Box</button>
                         </div>
                       </div>
                 </div>
@@ -101,6 +102,33 @@
                       </div>
                 </div>
             </div>
+            <div class="row w-100 d-flex justify-content-center align-content-center">
+                <div class="col-6">
+                    <div class="card shadow-lg mt-4">
+                        <div class="card-body d-flex justify-content-center">
+                          <span class="card-title text-center"><i class="fa fa-plus"></i></span>
+                        </div>
+
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center align-content-center mt-4">
+                <div class="col-6">
+                    <form name="loginForm" method="post" onsubmit="return validateForm(event)">
+                        <label for="Name"><b>Name:</b></label>
+                        <input type="text" name="fullName" class="form-control m-2" placeholder="John Doe" required/>
+                        <label for="password"><b>Password:</b></label>
+                        <input type="password" name="password" class="form-control m-2" placeholder="*********" required/>
+                        <span class="pass-error"></span>
+                        <button class="btn btn-success m-2" type="submit">Login</button>
+                        <button class="btn btn-danger m-2" type="reset">cancel</button>
+                      </form>
+                </div>
+            </div>
+
+
         </div>
       </section>
     </main>
