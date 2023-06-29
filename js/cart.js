@@ -20,6 +20,17 @@ const cart = [
         total: function () {
             return this.quantity * this.price;
         },
+        isFavorite: true
+    },
+    {
+        cartRef : "cart-87897676",
+        image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+        title: "Shoes",
+        price: 99.00,
+        quantity: 9,
+        total: function () {
+            return this.quantity * this.price;
+        },
         isFavorite: false
     },
     {
@@ -40,7 +51,7 @@ var cartElement = document.getElementsByClassName('cart-items')[0];
 //Fonction de recalcul du prix total
 var recalculateTotalPrice = (item) => {
     var cardEl = document.getElementById(item.cartRef);
-    var totalPrice = cardEl.childNodes[0].childNodes[0].childNodes[3]; 
+    var totalPrice = cardEl.childNodes[0].childNodes[0].childNodes[3];
     totalPrice.innerHTML = `<h5 class="mb-0"><strong class="totalPrice">$${item.total()}</strong></h5>`
 }
 
@@ -156,6 +167,7 @@ var createItemHTML = (item) => {
         }
     }
     addQteBtn.innerHTML = `<i class="fas fa-plus main-color"></i>`
+
     productQteDiv.appendChild(MinusQteBtn);
     productQteDiv.appendChild(inputPrice);
     productQteDiv.appendChild(addQteBtn);
@@ -171,7 +183,7 @@ var createItemHTML = (item) => {
 
     // if(item.isFavorite)
     // {
-    //     productAction.innerHTML = `<i class="fa-regular fa-heart icon-size fa-bounce"></i>`;
+    //     productAction.innerHTML = `<i class="fa-solid text-danger fa-heart icon-size fa-bounce"></i>`;
     // }
     // else
     // {
@@ -197,7 +209,7 @@ var createItemHTML = (item) => {
 //la fonction qui nous permettra de creer automatiquement nos ligne de produits disponible dans le panier
 var createCartItems = () => {
     cart.map((item) => {
-        createItemHTML(item)
+       createItemHTML(item);
     })
 }
 
